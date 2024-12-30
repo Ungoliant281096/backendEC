@@ -1,12 +1,19 @@
 const express = require('express');
-const server = express();
+const bodyParser = require('body-parser');
+const loginRoutes = require('./services/login');
+const registroRoutes = require('./services/registro');
+
+const app = express();
 const port = 1717;
 
+app.use(bodyParser.json());
 
-server.get("/", (req, res ) => {
-    res.send("Hola mundo!")
-})
+// Rutas de login
+app.use('/login', loginRoutes);
 
-server.listen(port, () => {
-    console.log(`Servidor escuchando en el puerto ${port}`);
-})
+// Rutas de registro
+app.use('/registro', registroRoutes);
+
+app.listen(port, () => {
+  console.log(`Servidor escuchando en el puerto ${port}`);
+});
