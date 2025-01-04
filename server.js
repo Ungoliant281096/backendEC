@@ -9,11 +9,11 @@ const port = 1717;
 app.use(bodyParser.json());
 
 // Rutas de login
-app.use('/login', loginRoutes);
+app.use('/BLogin', loginRoutes);
 
 // Rutas de registro
-app.use('/registro', registroRoutes);
+app.use('/BRegistro', registroRoutes);
 
 app.listen(port, () => {
-  console.log(`Servidor escuchando en el puerto ${port}`);
+  console.log(`Servidor escuchando en el puerto http://localhost:${port}`);
 });
